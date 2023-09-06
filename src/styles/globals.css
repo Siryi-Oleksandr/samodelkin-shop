@@ -25,3 +25,7 @@ body {
     )
     rgb(var(--background-start-rgb));
 } */
+
+.container {
+  @apply mx-auto px-3 w-full flex flex-col sm:max-w-screen-sm lg:max-w-screen-lg lg:px-5 bg-gray-300;
+}

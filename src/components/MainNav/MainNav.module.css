@@ -1,0 +1,37 @@
+.wrapNav {
+  @apply py-4 border-b-2 shadow-lg;
+}
+
+.listNav {
+  @apply flex flex-wrap gap-2 justify-between;
+}
+
+.elementNav {
+  @apply block 
+  px-4 
+  py-2
+  font-medium
+  rounded-lg
+  border-2
+  hover:bg-indigo-400
+   focus:bg-indigo-400
+   
+   focus:text-gray-100
+   hover:text-gray-100
+   transition
+   cursor-pointer;
+}
+
+.elementNavActive {
+  @apply block 
+  px-4 
+  py-2
+  text-gray-100
+  font-medium
+  rounded-lg
+  border-2
+bg-indigo-500
+  hover:bg-indigo-400
+  transition
+  cursor-pointer;
+}
