@@ -4,6 +4,8 @@ import { FC, useEffect, useState } from "react";
 import styles from "./Checkout.module.css";
 import { SlLocationPin } from "react-icons/sl";
 import BtnChooseLocation from "@/components/buttons/BtnChooseLocation/BtnChooseLocation";
+import { Modal } from "@/components/Modal/Modal";
+import SearchCity from "@/components/SearchCity/SearchCity";
 
 const deliveryOptions = ["Нова пошта", "Укрпошта", "Самовивіз"];
 interface Location {
@@ -20,6 +22,7 @@ const Checkout: FC = () => {
     latitude: null,
     longitude: null,
   });
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     // Отримати геолокацію користувача
@@ -43,9 +46,20 @@ const Checkout: FC = () => {
     setIsShowDelivery((prevState) => !prevState);
   };
 
+  const openModal = () => {
+    setShowModal(true);
+  };
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <div>
-      <h1>Checkout</h1>
+      {showModal && (
+        <Modal onClose={closeModal}>
+          <SearchCity />
+        </Modal>
+      )}
 
       <form className="px-2 md:px-3 lg:px-4">
         <div className="space-y-12">
@@ -140,18 +154,11 @@ const Checkout: FC = () => {
           <div className="flex gap-1 items-center">
             <SlLocationPin />
             <p>
-              Моє місто:{" "}
-              <BtnChooseLocation
-                text="Київ"
-                action={() => alert("Choose your city")}
-              />
+              Моє місто: <BtnChooseLocation text="Київ" action={openModal} />
             </p>
           </div>
 
-          <BtnChooseLocation
-            text="вибрати інше місто"
-            action={() => alert("Choose your city")}
-          />
+          <BtnChooseLocation text="вибрати інше місто" action={openModal} />
         </div>
 
         <div className={styles.deliveryWrapper}>
