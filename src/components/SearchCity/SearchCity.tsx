@@ -2,16 +2,34 @@ import { useState, useCallback, ChangeEvent, useEffect } from "react";
 import { cities } from "@/constants/deliveryCities";
 import styles from "./SearchCity.module.css";
 import { useDebouncedCallback } from "use-debounce";
+import apiNovaPoshta from "@/services/apiNovaPoshta";
+
+const URL = "https://api.novaposhta.ua/v2.0/json/";
+
+async function getData(nameCity: string) {
+  const res = await fetch(URL, {
+    method: "POST",
+    // body: JSON.stringify(apiNovaPoshta.getRequestSearchCity(nameCity)),
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}
 
 const SearchCity = () => {
   const [search, setSearch] = useState("");
 
-  const sendRequest = (value: string) => {
-    console.log(`Sending request for: ${value}`);
-  };
+  // const sendRequest = (value: string) => {
+  //   console.log(`Sending request for: ${value}`);
+
+  // };
 
   const debouncedChangeCity = useDebouncedCallback((value) => {
-    sendRequest(value);
+    console.log("😋", value);
+    getData(value);
   }, 1000);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {

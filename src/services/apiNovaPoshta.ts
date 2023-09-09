@@ -1,5 +1,5 @@
 class ApiNovaPoshta {
-  private KEY = "358c4c503ec9f8763e856bf03d874b0a";
+  private KEY = "80f637d2cd85fe5494b0e0ad49ec908e";
 
   public getRequestSearchCity = (nameCity: string) => {
     return {
@@ -13,12 +13,6 @@ class ApiNovaPoshta {
       },
     };
   };
-
-  //   public async searchCity(nameCity: string) {
-  //     const result = await axios.post(URL, this.getRequestSearchCity(nameCity));
-
-  //     return result;
-  //   }
 }
 
 const apiNovaPoshta = new ApiNovaPoshta();
