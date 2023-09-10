@@ -46,23 +46,35 @@ class HttpService {
     await this.saveTokenToLocalStorage(this.accessToken);
   };
 
-  async getProducts({ page = 1 }: { page: number }): Promise<IResponseProduct> {
-    // &pagination[pageSize]=${this.countPageOnPage}
-    // pagination[page]=${page}
+  // * get Products
+  async getProducts({
+    page = "1",
+    category = "",
+  }: {
+    page: string;
+    category?: string;
+  }): Promise<IResponseProduct | null> {
+    const params = new URLSearchParams({
+      ...ADD_SEARCH_PARAMS["product.data"],
+      "pagination[pageSize]": this.countPageOnPage,
+      "pagination[page]": page,
+    });
 
-    let url = `${this.baseUrl}${BACKEND_KEYS.PRODUCTS}`;
-    url += `?${ADD_SEARCH_PARAMS["product.data"]}`;
-    url += `&pagination[pageSize]=${this.countPageOnPage}`;
-    url += `&pagination[page]=${page}`;
+    const url = `${this.baseUrl}${BACKEND_KEYS.PRODUCTS}?${params}`;
 
-    const res = await fetch(url);
+    try {
+      const res = await fetch(url);
 
-    if (!res.ok) {
-      // This will activate the closest `error.js` Error Boundary
-      throw new Error("Failed to fetch data");
+      if (!res.ok) {
+        // throw new Error("Failed to fetch data");
+        return null;
+      }
+
+      return res.json();
+    } catch {
+      // throw new Error("Failed to fetch data");
+      return null;
     }
-
-    return res.json();
   }
 }
 const httpServices = new HttpService();

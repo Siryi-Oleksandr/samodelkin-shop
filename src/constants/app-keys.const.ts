@@ -20,8 +20,16 @@ export const BACKEND_KEYS = {
 };
 
 export const ADD_SEARCH_PARAMS = {
-  "order.data":
-    "populate[0]=products&populate[1]=products.product.*&populate[2]=products.product.images.*&populate[3]=adresDelivery&populate[4]=adresDelivery.delivery_service",
-  "product.data":
-    "populate[categories]=*&populate[images]=*&populate[propertys][populate]=*",
+  "order.data": {
+    "populate[0]": "products",
+    "populate[1]": "products.product.*",
+    "populate[2]": "products.product.images.*",
+    "populate[3]": "adresDelivery",
+    "populate[4]": "adresDelivery.delivery_service",
+  },
+  "product.data": {
+    "populate[categories]": "*",
+    "populate[images]": "*",
+    "populate[propertys][populate]": "*",
+  },
 };
