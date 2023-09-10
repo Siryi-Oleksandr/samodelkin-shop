@@ -19,3 +19,7 @@ interface IResposeError {
   data: null;
   error: IError;
 }
+
+interface ISearchParams {
+  [key: string]: string;
+}

@@ -7,7 +7,7 @@ export const STORAGE_KEYS = {
 };
 
 // Backend Routes
-export const BACKEND_KEYS = {
+export const BACKEND_ROUTES = {
   LOGIN: "/api/auth/local",
   CURRENT_USER: "/api/users/me",
   REGISTER: "/api/auth/local/register",
@@ -17,6 +17,15 @@ export const BACKEND_KEYS = {
   COLORS: "/api/colors",
   DELIVERY_SERVICES: "/api/delivery-services",
   ORDERS: "/api/orders",
+};
+
+// Frontend routes
+export const FRONTEND_ROUTES = {
+  HOME: "/",
+  PRODUCTS: "/",
+  PRODUCT: "/product",
+  CART: "/cart",
+  CHECKOUT: "/checkout",
 };
 
 export const ADD_SEARCH_PARAMS = {

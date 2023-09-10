@@ -3,6 +3,8 @@
 import { FC } from "react";
 import ReactPaginate from "react-paginate";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
+// TODO - rewrite on module
+import "./Pagination.css";
 
 interface IParams {
   pageCount: number;
@@ -11,21 +13,26 @@ interface IParams {
 const Pagination: FC<IParams> = ({ pageCount, forcePage }) => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  console.log("🚀 ~ searchParams:", { ...searchParams });
   const pathname = usePathname();
 
-  // const params = {} as IParamsTodo;
-  //for (const [key, value] of searchParams.entries()) {
-  //   params[key] = value;
-  //}
+  const objSearchParams = {} as ISearchParams;
+  for (const [key, value] of searchParams) {
+    objSearchParams[key] = value;
+  }
 
   const handleClickPagination = ({ selected }: { selected: number }) => {
-    console.log("Click pafination", selected, pathname);
-    // router.push("/dashboard");
+    console.log("Click page", selected);
+    const params = new URLSearchParams({
+      ...objSearchParams,
+      page: String(selected + 1),
+    });
+
+    router.push(`${pathname}?${params}`);
   };
 
   return (
     <ReactPaginate
+      className="react-paginate"
       breakLabel="..."
       nextLabel="next >"
       onPageChange={handleClickPagination}

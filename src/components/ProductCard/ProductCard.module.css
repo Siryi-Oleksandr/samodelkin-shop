@@ -1,0 +1,8 @@
+.card {
+  /* @apply border p-3 rounded-xl lg:w-96 md:w-[22rem] w-full; */
+  @apply border p-3 rounded-xl  w-full content-center;
+}
+
+.image {
+  @apply h-96 w-auto ml-auto mr-auto;
+}

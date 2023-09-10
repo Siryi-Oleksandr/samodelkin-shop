@@ -1,5 +1,6 @@
 import { FC } from "react";
 import httpServices from "@/services/http";
+import ProductList from "@/components/ProductList/ProductList";
 import Pagination from "@/components/Pagination/Pagination";
 
 interface IParams {
@@ -17,19 +18,11 @@ const ProductsScreen: FC<IParams> = async ({
     <>
       <div>Products Screen 😎</div>
       <p>{`Page: ${page}`}</p>
-      {response &&
-        response.data.length > 0 &&
-        response.data.map((product) => {
-          const { attributes } = product;
-          return (
-            <div key={product.id}>
-              <p>{attributes.title}</p>
-              <p>{attributes.countPlayers}</p>
-              <p>{attributes.price}</p>
-              <p>{attributes.descrition}</p>
-            </div>
-          );
-        })}
+
+      {response && response.data.length > 0 && (
+        <ProductList productList={response.data} />
+      )}
+
       <Pagination pageCount={pageCount} forcePage={page} />
     </>
   );

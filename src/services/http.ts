@@ -2,7 +2,7 @@ import { cookies } from "next/headers";
 
 import {
   STORAGE_KEYS,
-  BACKEND_KEYS,
+  BACKEND_ROUTES,
   ADD_SEARCH_PARAMS,
 } from "@/constants/app-keys.const";
 
@@ -60,7 +60,7 @@ class HttpService {
       "pagination[page]": page,
     });
 
-    const url = `${this.baseUrl}${BACKEND_KEYS.PRODUCTS}?${params}`;
+    const url = `${this.baseUrl}${BACKEND_ROUTES.PRODUCTS}?${params}`;
 
     try {
       const res = await fetch(url);

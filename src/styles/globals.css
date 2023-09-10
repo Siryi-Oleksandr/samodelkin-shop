@@ -27,5 +27,5 @@ body {
 } */
 
 .container {
-  @apply mx-auto px-3 w-full flex flex-col sm:max-w-screen-sm lg:max-w-screen-lg lg:px-5 bg-gray-300;
+  @apply mx-auto px-3 w-full flex flex-col sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg lg:px-5 bg-gray-300;
 }
