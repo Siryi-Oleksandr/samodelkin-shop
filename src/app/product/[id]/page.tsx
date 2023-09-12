@@ -1,7 +1,8 @@
 import React from "react";
+import ProductScreen from "@/screens/ProductScreen/ProductScreen";
 
 const Product = () => {
-  return <div>Product</div>;
+  return <ProductScreen />;
 };
 
 export default Product;

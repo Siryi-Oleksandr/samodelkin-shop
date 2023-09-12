@@ -1,0 +1,5 @@
+.listCard {
+  @apply grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1  gap-3;
+}
+
+/* @apply flex flex-wrap gap-3 justify-between; */

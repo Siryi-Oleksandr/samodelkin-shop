@@ -1,0 +1,5 @@
+.containerLoader {
+  @apply mx-auto
+  flex
+  justify-center;
+}
