@@ -18,17 +18,17 @@ export const pages = [
     showMainNav: true,
   },
   {
+    name: "checkout",
+    title: "Оформлення замовлення",
+    url: "/checkout",
+    showMainNav: true,
+  },
+  {
     name: "cart",
     title: "Корзина",
     url: "/cart",
     showMainNav: true,
   },
-  //   {
-  //     name: "checkout",
-  //     title: "Оформлення замовлення",
-  //     url: "/checkout",
-  //     showMainNav: true,
-  //   },
   //   {
   //     name: "account",
   //     title: "Особистий кабіет",
