@@ -13,8 +13,6 @@ const ProductsScreen: FC<IParams> = async ({
 }): Promise<JSX.Element> => {
   const { page = "1", category = "" } = searchParams;
 
-  console.log("🚀 ~ category:", category);
-
   const responseProducts = await httpServices.getProducts({
     page: String(page),
     category: String(category),

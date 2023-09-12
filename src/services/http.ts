@@ -59,26 +59,20 @@ class HttpService {
       "pagination[pageSize]": this.countPageOnPage,
       "pagination[page]": page,
     };
-    if (category !== "")
-      paramsObj["filters[attributes][categories][attributes][slug][$eq]"] =
-        category;
+    if (category !== "") paramsObj["filters[categories][slug][$eq]"] = category;
 
     const params = new URLSearchParams(paramsObj);
-    // console.log("🚀 ~ params:", params);
-
     const url = `${this.baseUrl}${BACKEND_ROUTES.PRODUCTS}?${params}`;
 
     try {
       const res = await fetch(url);
 
       if (!res.ok) {
-        // throw new Error("Failed to fetch data");
         return null;
       }
 
       return res.json();
     } catch {
-      // throw new Error("Failed to fetch data");
       return null;
     }
   }

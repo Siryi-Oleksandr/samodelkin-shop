@@ -18,7 +18,6 @@ const FilterCategories: FC<IProps> = ({ allCategories, curentCategory }) => {
   }
 
   const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    console.log("handleChange", event.target.value);
     const category = event.target.value;
 
     const params = new URLSearchParams({
@@ -26,8 +25,8 @@ const FilterCategories: FC<IProps> = ({ allCategories, curentCategory }) => {
       category,
     });
 
+    params.delete("page");
     if (category === "") params.delete("category");
-    console.log("🚀 ~ params:", `${pathname}?${params}`);
 
     router.push(`${pathname}?${params}`);
   };
@@ -40,7 +39,9 @@ const FilterCategories: FC<IProps> = ({ allCategories, curentCategory }) => {
         value={curentCategory}
         onChange={handleChange}
       >
-        <option value="">Всі категорії</option>
+        <option key="allCategories" value="">
+          Всі категорії
+        </option>
         {allCategories.map((elem) => {
           return (
             <option key={elem.id} value={elem.attributes.slug}>

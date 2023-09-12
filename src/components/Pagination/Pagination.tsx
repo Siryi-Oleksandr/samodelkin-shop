@@ -21,7 +21,6 @@ const Pagination: FC<IParams> = ({ pageCount, forcePage }) => {
   }
 
   const handleClickPagination = ({ selected }: { selected: number }) => {
-    console.log("Click page", selected);
     const params = new URLSearchParams({
       ...objSearchParams,
       page: String(selected + 1),
