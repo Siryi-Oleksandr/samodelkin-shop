@@ -1,5 +1,12 @@
 .containerLoader {
-  @apply mx-auto
+  @apply /* fixed
+  top-0
+  left-0 */
+  w-full
+  /* h-full */
   flex
-  justify-center;
+  justify-center
+  items-center
+  /* bg-black/80 */
+  z-10;
 }
