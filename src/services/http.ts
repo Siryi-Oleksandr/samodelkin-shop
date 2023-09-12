@@ -52,15 +52,40 @@ class HttpService {
     category = "",
   }: {
     page: string;
-    category?: string;
+    category: string;
   }): Promise<IResponseProduct | null> {
-    const params = new URLSearchParams({
+    const paramsObj: { [key: string]: string } = {
       ...ADD_SEARCH_PARAMS["product.data"],
       "pagination[pageSize]": this.countPageOnPage,
       "pagination[page]": page,
-    });
+    };
+    if (category !== "")
+      paramsObj["filters[attributes][categories][attributes][slug][$eq]"] =
+        category;
+
+    const params = new URLSearchParams(paramsObj);
+    // console.log("🚀 ~ params:", params);
 
     const url = `${this.baseUrl}${BACKEND_ROUTES.PRODUCTS}?${params}`;
+
+    try {
+      const res = await fetch(url);
+
+      if (!res.ok) {
+        // throw new Error("Failed to fetch data");
+        return null;
+      }
+
+      return res.json();
+    } catch {
+      // throw new Error("Failed to fetch data");
+      return null;
+    }
+  }
+
+  // * get Categories
+  async getCategories(): Promise<IResponseCategories | null> {
+    const url = `${this.baseUrl}${BACKEND_ROUTES.CATEGORIES}`;
 
     try {
       const res = await fetch(url);

@@ -27,6 +27,8 @@ const Pagination: FC<IParams> = ({ pageCount, forcePage }) => {
       page: String(selected + 1),
     });
 
+    if (selected === 0) params.delete("page");
+
     router.push(`${pathname}?${params}`);
   };
 
