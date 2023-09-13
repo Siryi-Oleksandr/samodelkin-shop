@@ -17,11 +17,14 @@ const MainNav: FC = () => {
           const isActive = pathname === page.url;
 
           return (
-            <li
-              key={page.name}
-              className={isActive ? styles.elementNavActive : styles.elementNav}
-            >
-              <Link href={page.url}>{page.title}</Link>
+            <li key={page.name}>
+              <Link
+                className={styles.elementNav}
+                href={page.url}
+                data-active={isActive}
+              >
+                {page.title}
+              </Link>
             </li>
           );
         })}

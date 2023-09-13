@@ -2,6 +2,7 @@ import { FC } from "react";
 import httpServices from "@/services/http";
 import ProductList from "@/components/ProductList/ProductList";
 import Pagination from "@/components/Pagination/Pagination";
+import FilterCategories from "@/components/FilterCategories/FilterCategories";
 
 interface IParams {
   searchParams: { [key: string]: string | string[] | undefined };
@@ -10,17 +11,27 @@ interface IParams {
 const ProductsScreen: FC<IParams> = async ({
   searchParams,
 }): Promise<JSX.Element> => {
-  const { page = "1" } = searchParams;
-  const response = await httpServices.getProducts({ page: String(page) });
-  const pageCount = response?.meta?.pagination.pageCount || 1;
+  const { page = "1", category = "" } = searchParams;
+
+  const responseProducts = await httpServices.getProducts({
+    page: String(page),
+    category: String(category),
+  });
+  const pageCount = responseProducts?.meta?.pagination.pageCount || 1;
+
+  const responseCategories = await httpServices.getCategories();
+  const allCategories = responseCategories ? responseCategories.data : [];
 
   return (
     <>
       <div>Products Screen 😎</div>
-      <p>{`Page: ${page}`}</p>
 
-      {response && response.data.length > 0 && (
-        <ProductList productList={response.data} />
+      <FilterCategories
+        allCategories={allCategories}
+        curentCategory={category}
+      />
+      {responseProducts && responseProducts.data.length > 0 && (
+        <ProductList productList={responseProducts.data} />
       )}
 
       <Pagination pageCount={pageCount} forcePage={page} />

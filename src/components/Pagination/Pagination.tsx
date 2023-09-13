@@ -21,11 +21,12 @@ const Pagination: FC<IParams> = ({ pageCount, forcePage }) => {
   }
 
   const handleClickPagination = ({ selected }: { selected: number }) => {
-    console.log("Click page", selected);
     const params = new URLSearchParams({
       ...objSearchParams,
       page: String(selected + 1),
     });
+
+    if (selected === 0) params.delete("page");
 
     router.push(`${pathname}?${params}`);
   };
