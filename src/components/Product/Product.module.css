@@ -1,0 +1,5 @@
+.wrapInformation {
+  /* @apply border p-3 rounded-xl lg:w-96 md:w-[22rem] w-full; */
+
+  @apply grid grid-cols-2;
+}

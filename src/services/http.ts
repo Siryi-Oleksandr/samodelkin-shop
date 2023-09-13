@@ -77,6 +77,27 @@ class HttpService {
     }
   }
 
+  // * get ONE Products
+  async getOneProducts(slug: string): Promise<IResponseProduct | null> {
+    const params = new URLSearchParams({
+      ...ADD_SEARCH_PARAMS["product.data"],
+    });
+
+    const url = `${this.baseUrl}${BACKEND_ROUTES.PRODUCTS}/${slug}?${params}`;
+
+    try {
+      const res = await fetch(url);
+
+      if (!res.ok) {
+        return null;
+      }
+
+      return res.json();
+    } catch {
+      return null;
+    }
+  }
+
   // * get Categories
   async getCategories(): Promise<IResponseCategories | null> {
     const url = `${this.baseUrl}${BACKEND_ROUTES.CATEGORIES}`;
