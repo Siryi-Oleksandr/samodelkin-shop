@@ -7,7 +7,6 @@ interface IProps {
 }
 const ProductScreen: FC<IProps> = async ({ slug }): Promise<JSX.Element> => {
   const responseProduct = await httpServices.getOneProducts(slug);
-
   return (
     <>
       {responseProduct && responseProduct.data.length > 0 && (

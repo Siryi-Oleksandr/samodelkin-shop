@@ -26,7 +26,7 @@ const rgbDataURL = (r: number, g: number, b: number) =>
 
 const ProductCard: FC<IProps> = ({ product }) => {
   const { attributes } = product;
-  const images = attributes.images.data;
+  const images = attributes.images?.data;
 
   const urlImage = images ? images[0].attributes.url : Img;
 
@@ -44,13 +44,23 @@ const ProductCard: FC<IProps> = ({ product }) => {
           // priority={true}
           sizes="(max-width: 768px) 50vw, (max-width: 1200px) 30vw, 100vw"
         />
-        <p>{attributes.title}</p>
+        <h2 className={styles.title}>{attributes.title}</h2>
       </Link>
-      <p>Код товару: {attributes.code}</p>
-      <p>Ціна: {attributes.price} грн.</p>
-      <p>Кількість гравців: {attributes.countPlayers}</p>
+
+      <div className={styles.information}>
+        <p>Код товару: {attributes.code}</p>
+        <p>Ціна: {attributes.price} грн.</p>
+        <p>Кількість гравців: {attributes.countPlayers}</p>
+      </div>
 
       <ButtonsCardProduct product={product} />
+
+      <div className={styles.appearInformation}>
+        <p>{attributes.descrition}</p>
+        <p>Код товару: {attributes.code}</p>
+        <p>Ціна: {attributes.price} грн.</p>
+        <p>Кількість гравців: {attributes.countPlayers}</p>
+      </div>
     </div>
   );
 };

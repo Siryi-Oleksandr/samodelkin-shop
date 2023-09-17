@@ -10,7 +10,9 @@ const ProductList: FC<IProps> = ({ productList }) => {
   return (
     <ul className={style.listCard}>
       {productList.map((product) => (
-        <ProductCard key={product.id} product={product} />
+        <li className={style.elementCard} key={product.id}>
+          <ProductCard product={product} />
+        </li>
       ))}
     </ul>
   );

@@ -1,13 +1,13 @@
-export interface IResponseImages {
+interface IResponseImages {
   data: IImage[];
 }
 
-export interface IImage {
+interface IImage {
   id: number;
   attributes: IAttributesImage;
 }
 
-export interface IAttributesImage {
+interface IAttributesImage {
   name: string;
   alternativeText: string;
   caption: any;
@@ -25,11 +25,11 @@ export interface IAttributesImage {
   updatedAt: string;
 }
 
-export interface IFormatsImage {
+interface IFormatsImage {
   thumbnail: IThumbnail;
 }
 
-export interface IThumbnail {
+interface IThumbnail {
   ext: string;
   url: string;
   hash: string;

@@ -9,7 +9,7 @@ interface IColor {
   attributes: IAttributesColor;
 }
 
-export interface IAttributesColor {
+interface IAttributesColor {
   title: string;
   color: string;
   createdAt: string;

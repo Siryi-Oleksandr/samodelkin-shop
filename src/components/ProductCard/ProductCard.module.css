@@ -1,8 +1,29 @@
 .card {
   /* @apply border p-3 rounded-xl lg:w-96 md:w-[22rem] w-full; */
-  @apply border p-3 rounded-xl  w-full content-center;
+  @apply flex flex-col p-3  w-full max-h-full content-center border 
+  rounded-xl  z-10;
+}
+
+.card:hover {
+  @apply absolute max-h-max bg-orange-500;
 }
 
 .image {
   @apply h-96 w-auto ml-auto mr-auto;
+}
+
+.title {
+  @apply mt-2 text-lg font-bold;
+}
+
+.information {
+  @apply overflow-y-auto mt-1;
+}
+
+.appearInformation {
+  @apply hidden;
+}
+
+.card:hover .appearInformation {
+  @apply block;
 }

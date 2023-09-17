@@ -1,16 +1,15 @@
-export interface IResponseDeliveryStatus {
+interface IResponseDeliveryStatus {
   data: IDeliveryStatus[];
   meta?: IMeta;
   error?: IError;
-  
 }
 
-export interface IDeliveryStatus {
+interface IDeliveryStatus {
   id: number;
   attributes: IAttributesDeliveryStatus;
 }
 
-export interface IAttributesDeliveryStatus {
+interface IAttributesDeliveryStatus {
   title: string;
   slug: string;
   active: boolean;

@@ -5,11 +5,11 @@
 }
 
 .wrapImage {
-  @apply px-2 outline outline-1 outline-orange-700 flex items-center overflow-hidden;
+  @apply px-2 outline outline-1 outline-orange-700 flex items-center;
 }
 
 .wrapProductInformation {
-  @apply px-2;
+  @apply px-2 outline outline-1 outline-orange-700;
 }
 
 .title {
