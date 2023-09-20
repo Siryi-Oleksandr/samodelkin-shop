@@ -1,16 +1,11 @@
 .wrapSectionSlider {
   @apply max-h-full 
-  max-w-full 
-  h-full 
-  flex 
-  flex-col 
-  justify-between 
-  overflow-hidden 
-  gap-1;
+  max-w-full h-full flex flex-col justify-between overflow-hidden gap-1
+  outline outline-1 outline-orange-700;
 }
 
 .wrapSlider {
-  @apply flex-grow;
+  @apply flex-grow flex  flex-col;
 }
 
 .slickSlider {

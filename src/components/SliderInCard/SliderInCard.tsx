@@ -1,48 +1,50 @@
 "use client";
-import { FC } from "react";
-import Slider from "react-slick";
-import Img from "@/assets/no_images.png";
+import { FC, useState } from "react";
+
+import { Swiper, SwiperSlide, SwiperClass } from "swiper/react";
+import { FreeMode, Navigation, Thumbs } from "swiper/modules";
+import { SwiperOptions } from "swiper/types";
 import Image from "next/image";
+
 import style from "./SliderInCard.module.css";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
 import "./SliderInCard.css";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+
+// import required modules
 
 interface IProps {
   images: IImage[];
   title: string;
 }
+
 const SliderInCard: FC<IProps> = ({ images, title }) => {
-  const settings = {
-    customPaging: function (i: number) {
-      return (
-        <a>
-          <Image
-            src={images[i].attributes.url}
-            alt={title}
-            height={48}
-            width={48}
-          />
-        </a>
-      );
-    },
-    dots: true,
-    fade: true,
-    dotsClass: "slick-dots slick-thumb slickThumb",
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
+  const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass | null>(null);
+
+  const option: SwiperOptions = {};
 
   return (
     <div className={style.wrapSectionSlider}>
       <h2>Custom Paging</h2>
       <div className={style.wrapSlider}>
-        <Slider className={style.slickSlider} {...settings}>
+        <Swiper
+          // style={{
+          //   "--swiper-navigation-color": "#fff",
+          //   "--swiper-pagination-color": "#fff",
+          // }}
+          spaceBetween={10}
+          navigation={true}
+          thumbs={{ swiper: thumbsSwiper }}
+          modules={[FreeMode, Navigation, Thumbs]}
+          className="mySwiper2"
+        >
           {images.map((element, ind) => {
             return (
-              <div key={element.id}>
+              <SwiperSlide key={element.id}>
                 <Image
                   priority={ind === 0}
                   className={style.image}
@@ -51,13 +53,36 @@ const SliderInCard: FC<IProps> = ({ images, title }) => {
                   height={500}
                   width={500}
                 />
-              </div>
+              </SwiperSlide>
             );
           })}
-        </Slider>
+        </Swiper>
+        <Swiper
+          onSwiper={setThumbsSwiper}
+          spaceBetween={10}
+          slidesPerView={4}
+          freeMode={true}
+          watchSlidesProgress={true}
+          modules={[FreeMode, Navigation, Thumbs]}
+          className="mySwiper"
+        >
+          {images.map((element, ind) => {
+            return (
+              <SwiperSlide key={element.id}>
+                <Image
+                  priority={ind === 0}
+                  // className={style.image}
+                  src={element.attributes.url}
+                  alt={title}
+                  height={500}
+                  width={500}
+                />
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
       </div>
     </div>
   );
 };
-
 export default SliderInCard;
