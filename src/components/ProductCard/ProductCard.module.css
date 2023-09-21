@@ -1,11 +1,11 @@
 .card {
   /* @apply border p-3 rounded-xl lg:w-96 md:w-[22rem] w-full; */
   @apply flex flex-col p-3  w-full max-h-full h-[600px] content-center border 
-  rounded-xl;
+  rounded-xl bg-gray-300;
 }
 
 .card:hover {
-  @apply absolute max-h-max h-auto z-10 bg-orange-500;
+  @apply absolute max-h-max h-auto z-10 shadow-lg shadow-gray-500/80;
 }
 
 .image {

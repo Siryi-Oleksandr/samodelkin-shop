@@ -27,7 +27,6 @@ const SliderInCard: FC<IProps> = ({ images, title }) => {
 
   return (
     <div className={style.wrapSectionSlider}>
-      <h2>Custom Paging</h2>
       <div className={style.wrapSlider}>
         <Swiper
           // style={{
@@ -43,9 +42,10 @@ const SliderInCard: FC<IProps> = ({ images, title }) => {
           {images.map((element, ind) => {
             return (
               <SwiperSlide key={element.id}>
+                {/* <p>image</p> */}
                 <Image
                   priority={ind === 0}
-                  className={style.image}
+                  // className={style.image}
                   src={element.attributes.url}
                   alt={title}
                   height={500}
@@ -72,8 +72,8 @@ const SliderInCard: FC<IProps> = ({ images, title }) => {
                   // className={style.image}
                   src={element.attributes.url}
                   alt={title}
-                  height={500}
-                  width={500}
+                  height={50}
+                  width={50}
                 />
               </SwiperSlide>
             );

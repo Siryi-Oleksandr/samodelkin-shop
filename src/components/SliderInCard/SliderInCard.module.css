@@ -1,43 +1,9 @@
 .wrapSectionSlider {
-  @apply max-h-full 
-  max-w-full 
-  h-full 
-  flex 
-  flex-col 
-  justify-between 
-  overflow-hidden 
-  gap-1;
+  @apply h-full  
+  w-full  
+  overflow-hidden;
 }
 
 .wrapSlider {
-  @apply flex-grow;
+  @apply flex flex-col w-full h-full;
 }
-
-.slickSlider {
-  @apply h-full flex  flex-col;
-}
-
-.image {
-  @apply max-h-fit w-full max-w-full ml-auto mr-auto;
-  /* @apply h-[50%] w-[50%] ml-auto mr-auto; */
-}
-
-/* & .slider {
-    @apply h-full w-full;
-  } */
-
-/* & .slick-list {
-    @apply overflow-hidden h-full w-full;
-  }
-
-  
-
-  & .slick-track {
-    display: flex;
-    height: 100%;
-    width: 100%;
-  }
-
-  & .slick-arrow {
-    display: none;
-  } */
