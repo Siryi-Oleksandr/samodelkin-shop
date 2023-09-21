@@ -14,14 +14,12 @@ const MainNav: FC = () => {
     <div className={styles.wrapNav}>
       <ul className={styles.listNav}>
         {pages.map((page) => {
-          const isActive = pathname === page.url;
-
           return (
             <li key={page.name}>
               <Link
                 className={styles.elementNav}
                 href={page.url}
-                data-active={isActive}
+                data-active={pathname === page.url}
               >
                 {page.title}
               </Link>
