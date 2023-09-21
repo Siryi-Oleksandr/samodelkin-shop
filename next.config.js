@@ -11,6 +11,9 @@ const nextConfig = {
         pathname: "/dnue4gq1m/image/upload/**",
       },
     ],
+    dangerouslyAllowSVG: true,
+    contentDispositionType: "attachment",
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 };
 

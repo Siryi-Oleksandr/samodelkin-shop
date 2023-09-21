@@ -102,6 +102,7 @@ class HttpService {
   async getCategories(): Promise<IResponseCategories | null> {
     const url = `${this.baseUrl}${BACKEND_ROUTES.CATEGORIES}`;
 
+    console.log("🚀 ~ url:", url);
     try {
       const res = await fetch(url);
 

@@ -1,0 +1,11 @@
+.wrapHeader {
+  @apply flex justify-between pt-1 pb-1;
+}
+
+.wrapNavigate {
+  @apply flex justify-between gap-32;
+}
+
+.wrapButton {
+  @apply flex justify-between gap-12;
+}

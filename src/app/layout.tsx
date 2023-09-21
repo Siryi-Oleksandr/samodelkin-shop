@@ -1,7 +1,10 @@
-import "../styles/globals.css";
+import { FC, ReactNode } from "react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import MainNav from "@/components/MainNav/MainNav";
+import FooterPage from "@/components/FooterPage/FooterPage";
+import HeaderPage from "@/components/HeaderPage/HeaderPage";
+import style from "@/styles/RootLayout.module.css";
+import "@/styles/globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -9,21 +12,35 @@ export const metadata: Metadata = {
   title: "Samodelkin Shop",
   description: "Інтернет магазин продажу іграшок ручної роботи",
 };
+interface IProps {
+  children: ReactNode;
+}
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+const RootLayout: FC<IProps> = ({ children }) => {
   return (
     <html lang="ua">
       <body className={inter.className}>
-        <div className="container">
-          <MainNav />
-          <div>{children}</div>
+        <div className={style.wrapBody}>
+          <header>
+            <div className={style.container}>
+              <HeaderPage />
+            </div>
+          </header>
+          <main className={style.wrapMain}>
+            <div className={style.container}>
+              <div>{children}</div>
+            </div>
+          </main>
+          <footer>
+            <div className={style.container}>
+              <FooterPage />
+            </div>
+          </footer>
+          <div id="modal-root"></div>
         </div>
-        <div id="modal-root"></div>
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;

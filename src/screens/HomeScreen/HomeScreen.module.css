@@ -1,0 +1,11 @@
+.wrapPage {
+  @apply flex gap-2;
+}
+
+.wrapFilter {
+  @apply w-48;
+}
+
+.wrapContent {
+  @apply flex-grow outline outline-1 outline-orange-600;
+}
