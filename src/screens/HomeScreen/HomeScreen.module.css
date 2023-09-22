@@ -1,4 +1,8 @@
-.wrapPage {
+.wrap {
+  @apply flex;
+}
+
+.wrapHomePage {
   @apply flex gap-2;
 }
 
@@ -8,4 +12,16 @@
 
 .wrapContent {
   @apply flex-grow outline outline-1 outline-orange-600;
+}
+
+.imageHero {
+  @apply w-full;
+}
+
+.sectionTypeGames {
+  @apply mt-6;
+}
+
+.section {
+  @apply mt-20;
 }

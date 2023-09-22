@@ -31,6 +31,4 @@ const ProductsScreen: FC<IParams> = async ({
   );
 };
 
-//
-
 export default ProductsScreen;

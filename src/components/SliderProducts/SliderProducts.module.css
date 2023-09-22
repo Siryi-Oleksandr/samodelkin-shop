@@ -1,0 +1,10 @@
+.elementCard {
+  @apply relative   
+  w-80
+  h-[600px]
+  overflow-hidden;
+}
+
+.elementCard:hover {
+  @apply overflow-visible;
+}

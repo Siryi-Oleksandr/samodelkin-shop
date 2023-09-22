@@ -13,13 +13,12 @@ const FilterPanel: FC<IParams> = async ({
   const { category = "" } = searchParams;
   const responseCategories = await httpServices.getCategories();
   const allCategories = responseCategories ? responseCategories.data : [];
-  console.log("🚀 ~ allCategories:", allCategories);
 
   return (
     <>
       <FilterCategories
         allCategories={allCategories}
-        curentCategory={category}
+        currentCategory={category}
       />
     </>
   );

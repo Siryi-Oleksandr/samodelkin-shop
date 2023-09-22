@@ -22,10 +22,14 @@ export const BACKEND_ROUTES = {
 // Frontend routes
 export const FRONTEND_ROUTES = {
   HOME: "/",
-  PRODUCTS: "/",
+  PRODUCTS: "/product",
   PRODUCT: "/product",
   CART: "/cart",
   CHECKOUT: "/checkout",
+  CONTACTS: "/contacts",
+  FAVORITES: "/favorites",
+  PAYMENT: "/payment_and_delivery",
+  ACCOUNT: "account",
 };
 
 export const ADD_SEARCH_PARAMS = {

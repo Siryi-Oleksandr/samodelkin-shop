@@ -1,37 +1,63 @@
 import { FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { FRONTEND_ROUTES } from "@/constants/app-keys.const";
 
 import iconHeart from "@/assets/icons/heart.svg";
 import iconPerson from "@/assets/icons/person.svg";
 import iconCart from "@/assets/icons/cart.svg";
+// import ShieldCheckIcon from "@/assets/icons.svg";
 
 import styles from "./HeaderPage.module.css";
 
 const HeaderPage: FC = () => {
+  // console.log(ShieldCheckIcon);
+
   return (
     <div className={styles.wrapHeader}>
       <Link href="/">Logo</Link>
 
       <div className={styles.wrapNavigate}>
-        <Link href="/checkout">Оформлення замовлення</Link>
+        <Link href={`${FRONTEND_ROUTES.CHECKOUT}`}>Оформлення замовлення</Link>
 
-        <Link href="/contacts">Contacts</Link>
+        <Link href={`${FRONTEND_ROUTES.CONTACTS}`}>Contacts</Link>
 
         <ul className={styles.wrapButton}>
           <li>
-            <Link href="/favorites">
-              <Image src={iconHeart} alt="icon" width={24} height={24} />
+            <Link className={styles.link} href={`${FRONTEND_ROUTES.FAVORITES}`}>
+              {/* <svg className={styles.icon}>
+                <use href={iconHeart} fill="red" />
+              </svg> */}
+
+              <Image
+                className={styles.icon}
+                src={iconHeart}
+                alt="icon"
+                width={24}
+                height={24}
+              />
             </Link>
           </li>
           <li>
-            <Link href="/account">
-              <Image src={iconPerson} alt="icon" width={24} height={24} />
+            <Link className={styles.link} href={`${FRONTEND_ROUTES.ACCOUNT}`}>
+              <Image
+                className={styles.icon}
+                src={iconPerson}
+                alt="icon"
+                width={24}
+                height={24}
+              />
             </Link>
           </li>
           <li>
-            <Link href="/cart">
-              <Image src={iconCart} alt="icon" width={24} height={24} />
+            <Link className={styles.link} href={`${FRONTEND_ROUTES.CART}`}>
+              <Image
+                className={styles.icon}
+                src={iconCart}
+                alt="icon"
+                width={24}
+                height={24}
+              />
             </Link>
           </li>
         </ul>

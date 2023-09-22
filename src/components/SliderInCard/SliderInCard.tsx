@@ -3,7 +3,7 @@ import { FC, useState } from "react";
 
 import { Swiper, SwiperSlide, SwiperClass } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
-// import { SwiperOptions } from "swiper/types";
+
 import Image from "next/image";
 
 import style from "./SliderInCard.module.css";

@@ -26,16 +26,17 @@ const RootLayout: FC<IProps> = ({ children }) => {
               <HeaderPage />
             </div>
           </header>
+
           <main className={style.wrapMain}>
-            <div className={style.container}>
-              <div>{children}</div>
-            </div>
+            <div className={style.container}>{children}</div>
           </main>
-          <footer>
+
+          <footer className={style.wrapFooter}>
             <div className={style.container}>
               <FooterPage />
             </div>
           </footer>
+
           <div id="modal-root"></div>
         </div>
       </body>
