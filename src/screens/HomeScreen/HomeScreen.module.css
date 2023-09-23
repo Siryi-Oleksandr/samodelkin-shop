@@ -3,7 +3,8 @@
 }
 
 .wrapHomePage {
-  @apply flex gap-2;
+  @apply w-full;
+  /* flex gap-2; */
 }
 
 .wrapFilter {
@@ -11,11 +12,11 @@
 }
 
 .wrapContent {
-  @apply flex-grow outline outline-1 outline-orange-600;
+  @apply flex-grow;
 }
 
 .imageHero {
-  @apply w-full;
+  @apply w-full max-w-full;
 }
 
 .sectionTypeGames {

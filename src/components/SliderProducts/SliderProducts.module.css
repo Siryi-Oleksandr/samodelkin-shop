@@ -1,10 +1,23 @@
-.elementCard {
-  @apply relative   
-  w-80
-  h-[600px]
-  overflow-hidden;
+.wrapSwiper {
+  @apply w-full 
+  sm:max-w-screen-sm 
+  md:max-w-screen-md 
+  lg:max-w-screen-lg
+  mt-4;
 }
 
-.elementCard:hover {
-  @apply overflow-visible;
+.elementCard {
+  @apply w-72 block;
+}
+
+.wrapButton {
+  @apply flex gap-6 mt-8 justify-center;
+}
+
+.buttonPrev {
+  @apply bg-slate-400;
+}
+
+.buttonNext {
+  @apply bg-slate-400;
 }

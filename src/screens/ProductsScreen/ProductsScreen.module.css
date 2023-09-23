@@ -1,0 +1,11 @@
+.wrapPage {
+  @apply w-full flex gap-2;
+}
+
+.wrapFilter {
+  @apply w-36;
+}
+
+.wrapContent {
+  @apply flex-grow p-2;
+}

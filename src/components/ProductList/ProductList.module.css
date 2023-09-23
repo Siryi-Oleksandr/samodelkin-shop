@@ -1,15 +1,15 @@
 .listCard {
-  @apply grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1  gap-3;
+  @apply flex
+  flex-wrap
+  justify-between
+  /* grid  */
+
+  /* lg:grid-cols-4
+  md:grid-cols-3 
+  sm:grid-cols-1  */
+  gap-4;
 }
 
-/* @apply flex flex-wrap gap-3 justify-between; */
 .elementCard {
-  @apply relative 
-  
-  h-[600px]
-  overflow-hidden;
-}
-
-.elementCard:hover {
-  @apply overflow-visible;
+  @apply w-72;
 }

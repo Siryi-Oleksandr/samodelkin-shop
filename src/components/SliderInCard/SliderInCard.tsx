@@ -1,12 +1,9 @@
 "use client";
 import { FC, useState } from "react";
+import Image from "next/image";
 
 import { Swiper, SwiperSlide, SwiperClass } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
-
-import Image from "next/image";
-
-import style from "./SliderInCard.module.css";
 
 // Import Swiper styles
 import "swiper/css";
@@ -15,7 +12,7 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import "./SliderInCard.css";
 
-// import required modules
+import style from "./SliderInCard.module.css";
 
 interface IProps {
   images: IImage[];
@@ -37,7 +34,7 @@ const SliderInCard: FC<IProps> = ({ images, title }) => {
           navigation={true}
           thumbs={{ swiper: thumbsSwiper }}
           modules={[FreeMode, Navigation, Thumbs]}
-          className="mySwiper2"
+          className="mySwiperInCardLarge"
         >
           {images.map((element, ind) => {
             return (
@@ -62,7 +59,7 @@ const SliderInCard: FC<IProps> = ({ images, title }) => {
           freeMode={true}
           watchSlidesProgress={true}
           modules={[FreeMode, Navigation, Thumbs]}
-          className="mySwiper"
+          className="mySwiperInCardSmall"
         >
           {images.map((element, ind) => {
             return (

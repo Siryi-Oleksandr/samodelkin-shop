@@ -19,9 +19,9 @@ const HomeScreen: FC<IParams> = async ({
 
   return (
     <div className={style.wrapHomePage}>
-      <div className={style.wrapFilter}>
+      {/* <div className={style.wrapFilter}>
         <FilterPanel searchParams={searchParams} />
-      </div>
+      </div> */}
       <div className={style.wrapContent}>
         <section>
           <Image
