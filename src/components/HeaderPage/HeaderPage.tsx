@@ -35,6 +35,7 @@ const HeaderPage: FC = () => {
                 alt="icon"
                 width={24}
                 height={24}
+                priority
               />
             </Link>
           </li>
@@ -46,6 +47,7 @@ const HeaderPage: FC = () => {
                 alt="icon"
                 width={24}
                 height={24}
+                priority
               />
             </Link>
           </li>
@@ -57,6 +59,7 @@ const HeaderPage: FC = () => {
                 alt="icon"
                 width={24}
                 height={24}
+                priority
               />
             </Link>
           </li>

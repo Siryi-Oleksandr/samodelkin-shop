@@ -25,7 +25,7 @@
 }
 
 .image {
-  @apply h-80 w-auto ml-auto mr-auto;
+  @apply h-80 w-auto ml-auto mr-auto object-contain;
 }
 
 .title {

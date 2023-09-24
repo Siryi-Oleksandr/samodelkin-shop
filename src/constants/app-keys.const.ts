@@ -32,6 +32,32 @@ export const FRONTEND_ROUTES = {
   ACCOUNT: "account",
 };
 
+export const ADD_INFORMATION_ROUTES = {
+  DESCRIBE: "",
+  INFO: "/info",
+  REVIEWS: "/reviews",
+  VIDEOS: "/videos",
+};
+
+export const TYPES_ADD_INFORMATION_PRODUCT = [
+  {
+    title: "Опис",
+    url: ADD_INFORMATION_ROUTES.DESCRIBE,
+  },
+  {
+    title: "Характеристики",
+    url: ADD_INFORMATION_ROUTES.INFO,
+  },
+  {
+    title: "Відгуки",
+    url: ADD_INFORMATION_ROUTES.REVIEWS,
+  },
+  {
+    title: "Відео",
+    url: ADD_INFORMATION_ROUTES.VIDEOS,
+  },
+];
+
 export const ADD_SEARCH_PARAMS = {
   "order.data": {
     "populate[0]": "products",

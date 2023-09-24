@@ -23,5 +23,5 @@
 }
 
 .image {
-  @apply max-h-[500px] max-w-[100%] ml-auto mr-auto;
+  @apply max-h-[500px] max-w-[100%] ml-auto mr-auto object-contain;
 }

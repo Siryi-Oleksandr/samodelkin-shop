@@ -30,6 +30,7 @@ const HomeScreen: FC<IParams> = async ({
             alt="Hero image"
             width={1029}
             height={320}
+            priority
           />
         </section>
 

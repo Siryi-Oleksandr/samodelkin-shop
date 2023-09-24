@@ -61,9 +61,6 @@ const Product: FC<IProps> = ({ product }) => {
           <ButtonsCardProduct product={product} />
         </div>
       </div>
-      <div>
-        <p> Additional informayion</p>
-      </div>
     </>
   );
 };
