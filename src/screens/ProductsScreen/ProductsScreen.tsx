@@ -2,7 +2,9 @@ import { FC } from "react";
 import httpServices from "@/services/http";
 import ProductList from "@/components/ProductList/ProductList";
 import Pagination from "@/components/Pagination/Pagination";
-import FilterCategories from "@/components/FilterCategories/FilterCategories";
+import FilterPanel from "@/components/FilterPanel/FilterPanel";
+
+import style from "./ProductsScreen.module.css";
 
 interface IParams {
   searchParams: { [key: string]: string | string[] | undefined };
@@ -19,26 +21,28 @@ const ProductsScreen: FC<IParams> = async ({
   });
   const pageCount = responseProducts?.meta?.pagination.pageCount || 1;
 
-  const responseCategories = await httpServices.getCategories();
-  const allCategories = responseCategories ? responseCategories.data : [];
-
   return (
     <>
-      <div>Products Screen 😎</div>
+      <section className={style.wrapPage}>
+        <div className={style.wrapFilter}>
+          <FilterPanel searchParams={searchParams} />
+        </div>
 
-      <FilterCategories
-        allCategories={allCategories}
-        curentCategory={category}
-      />
-      {responseProducts && responseProducts.data.length > 0 && (
-        <ProductList productList={responseProducts.data} />
-      )}
+        <div className={style.wrapContent}>
+          {responseProducts && responseProducts.data.length > 0 && (
+            <ProductList productList={responseProducts.data} />
+          )}
 
-      <Pagination pageCount={pageCount} forcePage={page} />
+          {pageCount > 1 && (
+            <Pagination pageCount={pageCount} forcePage={page} />
+          )}
+        </div>
+      </section>
+      <section className={style.wrapSection}>
+        <p>about Categories</p>
+      </section>
     </>
   );
 };
-
-//
 
 export default ProductsScreen;

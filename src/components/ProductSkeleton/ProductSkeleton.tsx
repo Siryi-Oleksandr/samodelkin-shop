@@ -16,6 +16,7 @@ const ProductSkeleton: FC = () => {
             height={500}
             width={500}
             alt="No image"
+            priority
           />
         </div>
 

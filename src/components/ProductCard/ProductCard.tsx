@@ -31,35 +31,37 @@ const ProductCard: FC<IProps> = ({ product }) => {
   const urlImage = images ? images[0].attributes.url : Img;
 
   return (
-    <div className={styles.card} key={product.id}>
-      <Link href={`${FRONTEND_ROUTES.PRODUCT}/${attributes.slug}`}>
-        <Image
-          className={styles.image}
-          src={urlImage}
-          alt={attributes.title}
-          height={0}
-          width={0}
-          placeholder="blur"
-          blurDataURL={rgbDataURL(19, 41, 177)}
-          // priority={true}
-          sizes="(max-width: 768px) 50vw, (max-width: 1200px) 30vw, 100vw"
-        />
-        <h2 className={styles.title}>{attributes.title}</h2>
-      </Link>
+    <div className={styles.wrapCard}>
+      <div className={styles.card} key={product.id}>
+        <Link href={`${FRONTEND_ROUTES.PRODUCT}/${attributes.slug}`}>
+          <Image
+            className={styles.image}
+            src={urlImage}
+            alt={attributes.title}
+            height={0}
+            width={0}
+            placeholder="blur"
+            blurDataURL={rgbDataURL(19, 41, 177)}
+            // priority={true}
+            sizes="(max-width: 768px) 50vw, (max-width: 1200px) 30vw, 100vw"
+          />
+          <h2 className={styles.title}>{attributes.title}</h2>
+        </Link>
 
-      <div className={styles.information}>
-        <p>Код товару: {attributes.code}</p>
-        <p>Ціна: {attributes.price} грн.</p>
-        <p>Кількість гравців: {attributes.countPlayers}</p>
-      </div>
+        <div className={styles.information}>
+          <p>Код товару: {attributes.code}</p>
+          <p>Ціна: {attributes.price} грн.</p>
+          <p>Кількість гравців: {attributes.countPlayers}</p>
+        </div>
 
-      <ButtonsCardProduct product={product} />
+        <ButtonsCardProduct product={product} />
 
-      <div className={styles.appearInformation}>
-        <p>{attributes.descrition}</p>
-        <p>Код товару: {attributes.code}</p>
-        <p>Ціна: {attributes.price} грн.</p>
-        <p>Кількість гравців: {attributes.countPlayers}</p>
+        <div className={styles.appearInformation}>
+          <p>{attributes.descrition}</p>
+          <p>Код товару: {attributes.code}</p>
+          <p>Ціна: {attributes.price} грн.</p>
+          <p>Кількість гравців: {attributes.countPlayers}</p>
+        </div>
       </div>
     </div>
   );

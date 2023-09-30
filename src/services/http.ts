@@ -98,6 +98,36 @@ class HttpService {
     }
   }
 
+  // * get sales leaders
+  async getSalesLeaders(): Promise<IResponseProduct | null> {
+    // const paramsObj: { [key: string]: string } = {
+    //   ...ADD_SEARCH_PARAMS["product.data"],
+    //   "pagination[pageSize]": this.countPageOnPage,
+    //   "pagination[page]": "1",
+    // };
+
+    const paramsObj: { [key: string]: string } = {
+      ...ADD_SEARCH_PARAMS["product.data"],
+      "pagination[pageSize]": "24",
+      "pagination[page]": "1",
+    };
+
+    const params = new URLSearchParams(paramsObj);
+    const url = `${this.baseUrl}${BACKEND_ROUTES.PRODUCTS}?${params}`;
+
+    try {
+      const res = await fetch(url);
+
+      if (!res.ok) {
+        return null;
+      }
+
+      return res.json();
+    } catch {
+      return null;
+    }
+  }
+
   // * get Categories
   async getCategories(): Promise<IResponseCategories | null> {
     const url = `${this.baseUrl}${BACKEND_ROUTES.CATEGORIES}`;

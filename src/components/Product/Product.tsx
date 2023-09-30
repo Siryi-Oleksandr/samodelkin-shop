@@ -1,10 +1,10 @@
 import { FC } from "react";
 import NavigateToBack from "../NavigateToBack/NavigateToBack";
 import SliderInCard from "../SliderInCard/SliderInCard";
-import style from "./Product.module.css";
 import Image from "next/image";
 import ImgNoImage from "@/assets/no_images.png";
 import ButtonsCardProduct from "../ButtonsCardProduct/ButtonsCardProduct";
+import style from "./Product.module.css";
 
 interface IProps {
   product: IProduct;
@@ -60,9 +60,6 @@ const Product: FC<IProps> = ({ product }) => {
 
           <ButtonsCardProduct product={product} />
         </div>
-      </div>
-      <div>
-        <p> Additional informayion</p>
       </div>
     </>
   );

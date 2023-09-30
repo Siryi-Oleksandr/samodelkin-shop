@@ -1,5 +1,6 @@
 import { FC } from "react";
 import ProductCard from "../ProductCard/ProductCard";
+
 import style from "./ProductList.module.css";
 
 interface IProps {

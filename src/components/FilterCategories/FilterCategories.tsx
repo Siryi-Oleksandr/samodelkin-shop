@@ -1,13 +1,15 @@
 "use client";
 
-import { FC, ChangeEvent } from "react";
-import { useRouter, usePathname, useSearchParams } from "next/navigation";
+import { FC } from "react";
+import { useRouter, useSearchParams, usePathname } from "next/navigation";
+import { FRONTEND_ROUTES } from "@/constants/app-keys.const";
+import style from "./FilterCategories.module.css";
 
 interface IProps {
   allCategories: ICategorie[];
-  curentCategory: string | string[];
+  currentCategory: string | string[];
 }
-const FilterCategories: FC<IProps> = ({ allCategories, curentCategory }) => {
+const FilterCategories: FC<IProps> = ({ allCategories, currentCategory }) => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const pathname = usePathname();
@@ -17,9 +19,7 @@ const FilterCategories: FC<IProps> = ({ allCategories, curentCategory }) => {
     objSearchParams[key] = value;
   }
 
-  const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    const category = event.target.value;
-
+  const handleOnClick = (category: string) => {
     const params = new URLSearchParams({
       ...objSearchParams,
       category,
@@ -28,29 +28,44 @@ const FilterCategories: FC<IProps> = ({ allCategories, curentCategory }) => {
     params.delete("page");
     if (category === "") params.delete("category");
 
-    router.push(`${pathname}?${params}`);
+    router.push(`${FRONTEND_ROUTES.PRODUCT}/?${params}`);
   };
 
   return (
-    <label>
-      Choose categorie:{" "}
-      <select
-        name="filterCategories"
-        value={curentCategory}
-        onChange={handleChange}
-      >
-        <option key="allCategories" value="">
-          Всі категорії
-        </option>
+    <>
+      <h2>Класифікація</h2>
+      <ul className={style.listCategory}>
+        <li key="allCategories">
+          <button
+            className={style.buttonCategory}
+            type="button"
+            onClick={() => handleOnClick("")}
+            data-active={
+              currentCategory === "" && pathname === FRONTEND_ROUTES.PRODUCT
+            }
+          >
+            Всі категорії
+          </button>
+        </li>
         {allCategories.map((elem) => {
           return (
-            <option key={elem.id} value={elem.attributes.slug}>
-              {elem.attributes.title}
-            </option>
+            <li key={elem.id}>
+              <button
+                className={style.buttonCategory}
+                type="button"
+                onClick={() => handleOnClick(elem.attributes.slug)}
+                data-active={
+                  currentCategory === elem.attributes.slug &&
+                  pathname === FRONTEND_ROUTES.PRODUCT
+                }
+              >
+                {elem.attributes.title}
+              </button>
+            </li>
           );
         })}
-      </select>
-    </label>
+      </ul>
+    </>
   );
 };
 

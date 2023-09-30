@@ -24,9 +24,15 @@ interface IAttributesImage {
   createdAt: string;
   updatedAt: string;
 }
+enum ETypeImages {
+  thumbnail = "thumbnail",
+  medium = "medium",
+  small = "small",
+  large = "large",
+}
 
 interface IFormatsImage {
-  thumbnail: IThumbnail;
+  [ETypeImages]: IThumbnail;
 }
 
 interface IThumbnail {
