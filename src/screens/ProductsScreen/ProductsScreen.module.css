@@ -1,11 +1,15 @@
 .wrapPage {
-  @apply w-full flex gap-2;
+  @apply w-full flex gap-6;
 }
 
 .wrapFilter {
-  @apply w-36;
+  @apply w-[292px];
 }
 
 .wrapContent {
-  @apply flex-grow p-2;
+  @apply flex-grow;
+}
+
+.wrapSection {
+  @apply mt-20;
 }

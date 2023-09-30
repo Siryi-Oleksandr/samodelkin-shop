@@ -46,11 +46,12 @@ const HomeScreen: FC<IParams> = async ({
             </section>
           )}
 
-          <section className={style.section}>
-            <h2>Переглянуті</h2>
-            <p>reviewers products</p>
-            {/* <SliderProducts /> */}
-          </section>
+          {responseProducts && responseProducts.data.length > 0 && (
+            <section className={style.section}>
+              <h2>Переглянуті</h2>
+              <SliderProducts productList={responseProducts.data} />
+            </section>
+          )}
 
           <section className={style.section}>
             <h2>Відгуки</h2>

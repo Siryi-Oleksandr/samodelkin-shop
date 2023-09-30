@@ -22,19 +22,26 @@ const ProductsScreen: FC<IParams> = async ({
   const pageCount = responseProducts?.meta?.pagination.pageCount || 1;
 
   return (
-    <div className={style.wrapPage}>
-      <div className={style.wrapFilter}>
-        <FilterPanel searchParams={searchParams} />
-      </div>
+    <>
+      <section className={style.wrapPage}>
+        <div className={style.wrapFilter}>
+          <FilterPanel searchParams={searchParams} />
+        </div>
 
-      <div className={style.wrapContent}>
-        {responseProducts && responseProducts.data.length > 0 && (
-          <ProductList productList={responseProducts.data} />
-        )}
+        <div className={style.wrapContent}>
+          {responseProducts && responseProducts.data.length > 0 && (
+            <ProductList productList={responseProducts.data} />
+          )}
 
-        {pageCount > 1 && <Pagination pageCount={pageCount} forcePage={page} />}
-      </div>
-    </div>
+          {pageCount > 1 && (
+            <Pagination pageCount={pageCount} forcePage={page} />
+          )}
+        </div>
+      </section>
+      <section className={style.wrapSection}>
+        <p>about Categories</p>
+      </section>
+    </>
   );
 };
 

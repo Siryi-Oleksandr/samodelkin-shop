@@ -35,11 +35,11 @@ const SliderProducts: FC<IProps> = ({ productList }) => {
           },
           768: {
             slidesPerView: 2,
-            spaceBetween: 30,
+            spaceBetween: 24,
           },
           1440: {
             slidesPerView: 3,
-            spaceBetween: 40,
+            spaceBetween: 24,
           },
         }}
       >

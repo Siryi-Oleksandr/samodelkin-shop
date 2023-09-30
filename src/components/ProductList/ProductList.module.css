@@ -2,14 +2,9 @@
   @apply flex
   flex-wrap
   justify-between
-  /* grid  */
-
-  /* lg:grid-cols-4
-  md:grid-cols-3 
-  sm:grid-cols-1  */
-  gap-4;
+  gap-6;
 }
 
 .elementCard {
-  @apply w-72;
+  @apply w-[292px];
 }
