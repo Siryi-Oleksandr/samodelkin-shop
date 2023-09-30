@@ -1,5 +1,7 @@
 import { FC } from "react";
 import Link from "next/link";
+import httpServices from "@/services/http";
+import ProductAddInfoReviews from "@/components/ProductAddInfoReviews/ProductAddInfoReviews";
 
 import {
   FRONTEND_ROUTES,
@@ -18,8 +20,15 @@ const getUrlAddInformation = (typeInformation: string, slug: string) => {
   return `${FRONTEND_ROUTES.PRODUCT}/${slug}${typeInformation}`;
 };
 
-const ProductAddInformation: FC<IProps> = ({ slug, addInfo }) => {
+const ProductAddInformation: FC<IProps> = async ({
+  slug,
+  addInfo,
+}): Promise<JSX.Element> => {
   const currentUrlInfo = addInfo === "" ? addInfo : `/${addInfo}`;
+  const responseProduct = await httpServices.getOneProducts(slug);
+
+  if (!responseProduct || responseProduct.data.length === 0) return <></>;
+
   return (
     <>
       <ul className={style.listTypesInfo}>
@@ -42,7 +51,9 @@ const ProductAddInformation: FC<IProps> = ({ slug, addInfo }) => {
       </ul>
       {currentUrlInfo === ADD_INFORMATION_ROUTES.DESCRIBE && <p>DESCRIBE</p>}
       {currentUrlInfo === ADD_INFORMATION_ROUTES.INFO && <p>INFO</p>}
-      {currentUrlInfo === ADD_INFORMATION_ROUTES.REVIEWS && <p>REVIEWS</p>}
+      {currentUrlInfo === ADD_INFORMATION_ROUTES.REVIEWS && (
+        <ProductAddInfoReviews product={responseProduct.data[0]} />
+      )}
       {currentUrlInfo === ADD_INFORMATION_ROUTES.VIDEOS && <p>VIDEOS</p>}
     </>
   );

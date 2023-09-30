@@ -18,45 +18,51 @@ const HomeScreen: FC<IParams> = async ({
   const responseProducts = await httpServices.getSalesLeaders();
 
   return (
-    <div className={style.wrapHomePage}>
-      {/* <div className={style.wrapFilter}>
-        <FilterPanel searchParams={searchParams} />
-      </div> */}
-      <div className={style.wrapContent}>
-        <section>
-          <Image
-            className={style.imageHero}
-            src={heroImage}
-            alt="Hero image"
-            width={1029}
-            height={320}
-            priority
-          />
-        </section>
-
-        <section className={style.sectionTypeGames}>
-          <TypeGames />
-        </section>
-
-        {responseProducts && responseProducts.data.length > 0 && (
-          <section className={style.section}>
-            <h2>Лідери продажу</h2>
-            <SliderProducts productList={responseProducts.data} />
+    <>
+      <div className={style.wrapHomePage}>
+        <div className={style.wrapFilter}>
+          <FilterPanel searchParams={searchParams} />
+        </div>
+        <div className={style.wrapContent}>
+          <section>
+            <Image
+              className={style.imageHero}
+              src={heroImage}
+              alt="Hero image"
+              width={924}
+              height={511}
+              priority
+            />
           </section>
-        )}
 
-        <section className={style.section}>
-          <h2>Переглянуті</h2>
-          <p>reviewers products</p>
-          {/* <SliderProducts /> */}
-        </section>
+          {/* <section className={style.sectionTypeGames}>
+          <TypeGames />
+        </section> */}
 
-        <section className={style.section}>
-          <h2>Відгуки</h2>
-          <p>Reviews.</p>
-        </section>
+          {responseProducts && responseProducts.data.length > 0 && (
+            <section className={style.section}>
+              <h2>Лідери продажу</h2>
+              <SliderProducts productList={responseProducts.data} />
+            </section>
+          )}
+
+          <section className={style.section}>
+            <h2>Переглянуті</h2>
+            <p>reviewers products</p>
+            {/* <SliderProducts /> */}
+          </section>
+
+          <section className={style.section}>
+            <h2>Відгуки</h2>
+            <p>Reviews.</p>
+          </section>
+        </div>
       </div>
-    </div>
+      <section className={style.section}>
+        <h2>About Us</h2>
+        <p>Content about us</p>
+      </section>
+    </>
   );
 };
 

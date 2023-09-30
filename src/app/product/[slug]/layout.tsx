@@ -16,8 +16,6 @@ const Layout: FC<IProps> = async ({
   const responseProduct = await httpServices.getOneProducts(slug);
   const responseSalesLeaders = await httpServices.getSalesLeaders();
 
-  console.log("Render Layout ");
-
   // You can add any UI inside Loading, including a Skeleton.
   return (
     <>

@@ -49,6 +49,7 @@ const Checkout: FC = () => {
   const openModal = () => {
     setShowModal(true);
   };
+
   const closeModal = () => {
     setShowModal(false);
   };

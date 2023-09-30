@@ -2,12 +2,12 @@
   @apply w-full 
   sm:max-w-screen-sm 
   md:max-w-screen-md 
-  lg:max-w-screen-lg
+  lg:max-w-[924px]
   mt-4;
 }
 
 .elementCard {
-  @apply w-72 block;
+  @apply w-[292px] block;
 }
 
 .wrapButton {

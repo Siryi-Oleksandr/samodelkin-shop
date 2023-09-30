@@ -3,12 +3,11 @@
 }
 
 .wrapHomePage {
-  @apply w-full;
-  /* flex gap-2; */
+  @apply w-full flex gap-2;
 }
 
 .wrapFilter {
-  @apply w-48;
+  @apply w-72;
 }
 
 .wrapContent {
