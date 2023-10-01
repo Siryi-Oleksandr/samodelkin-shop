@@ -1,9 +1,4 @@
-enum TypeArticles {
-  Title = "articles.title-article",
-  ContentImage = "articles.content-image",
-  Content = "articles.content",
-  Image = "articles.image",
-}
+import { TypeArticles } from "./generalTypes/articles.type";
 
 // * About Us
 interface IResponseAboutUs {
@@ -60,7 +55,7 @@ type TArticleGeneral =
   | ITitleArticle
   | IContentImageArticle
   | IImageArticle
-  | IContentImage;
+  | IContentArticle;
 
 interface ITitleArticle {
   id: number;
@@ -76,19 +71,23 @@ interface IContentImageArticle {
   percentImage: number;
   reverseDirection: boolean;
   description: string;
-  image: IImage;
+  image: {
+    data: IImage;
+  };
 }
 
-interface IImageArticle {
+interface IContentArticle {
   id: number;
   __component: TypeArticles.Content;
   content: string;
   description: string;
 }
 
-interface IContentImage {
+interface IImageArticle {
   id: number;
   __component: TypeArticles.Image;
   description: string;
-  image: IImage;
+  image: {
+    data: IImage;
+  };
 }

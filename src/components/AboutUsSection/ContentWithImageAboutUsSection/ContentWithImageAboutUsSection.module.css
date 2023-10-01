@@ -1,0 +1,14 @@
+.wrapContent {
+  @apply flex gap-6 mt-20
+  
+  
+  data-[reverse=true]:flex-row-reverse;
+}
+
+.wrapText {
+  @apply overflow-hidden outline outline-1 outline-orange-600;
+}
+
+.wrapImage {
+  @apply overflow-hidden outline outline-1 outline-orange-600;
+}

@@ -1,6 +1,7 @@
 import { cookies } from "next/headers";
 
 import { STORAGE_KEYS, BACKEND_ROUTES } from "@/constants/app-keys.const";
+import { IResponseAboutUs } from "@/types/articles.type";
 
 class HttpService {
   private accessToken: string = "";
