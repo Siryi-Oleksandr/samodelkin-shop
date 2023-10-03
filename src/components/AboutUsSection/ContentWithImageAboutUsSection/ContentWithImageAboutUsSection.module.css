@@ -1,14 +1,17 @@
 .wrapContent {
   @apply flex gap-6 mt-20
-  
-  
-  data-[reverse=true]:flex-row-reverse;
+   
+  data-[reverse=true]:flex-row-reverse
+  data-[after-title=true]:mt-8;
 }
-
-.wrapText {
-  @apply overflow-hidden outline outline-1 outline-orange-600;
+.wrapContent .wrapText {
+  @apply overflow-hidden flex flex-col justify-center;
 }
 
 .wrapImage {
-  @apply overflow-hidden outline outline-1 outline-orange-600;
+  @apply overflow-hidden;
+}
+
+.image {
+  @apply w-full;
 }

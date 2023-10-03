@@ -14,20 +14,47 @@ const AboutUsSection: FC = async (): Promise<JSX.Element> => {
   if (!responseAboutUs) return <></>;
 
   const aboutUs = responseAboutUs.data.attributes.content;
+  let countAfterTitile = 2;
 
   return (
     <>
       <h2 className={style.titleSection}>Про нас</h2>
       <div className={style.wrapContent}>
-        {aboutUs.map((element) => {
-          if (element.__component === TypeArticles.Title)
-            return <TitleAboutUsSection params={element} />;
-          if (element.__component === TypeArticles.Content)
-            return <ContentAboutUsSection params={element} />;
-          if (element.__component === TypeArticles.Image)
-            return <ImageAboutUsSection params={element} />;
-          if (element.__component === TypeArticles.ContentImage)
-            return <ContentWithImageAboutUsSection params={element} />;
+        {aboutUs.map((element, index) => {
+          if (element.__component === TypeArticles.Title) {
+            countAfterTitile = 0;
+            return <TitleAboutUsSection key={index} params={element} />;
+          }
+          if (element.__component === TypeArticles.Content) {
+            countAfterTitile++;
+            return (
+              <ContentAboutUsSection
+                key={index}
+                params={element}
+                afterTitle={countAfterTitile === 1}
+              />
+            );
+          }
+          if (element.__component === TypeArticles.Image) {
+            countAfterTitile++;
+            return (
+              <ImageAboutUsSection
+                key={index}
+                params={element}
+                afterTitle={countAfterTitile === 1}
+              />
+            );
+          }
+          if (element.__component === TypeArticles.ContentImage) {
+            countAfterTitile++;
+            return (
+              <ContentWithImageAboutUsSection
+                key={index}
+                params={element}
+                afterTitle={countAfterTitile === 1}
+              />
+            );
+          }
         })}
       </div>
     </>
